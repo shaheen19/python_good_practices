@@ -2,31 +2,31 @@
 
 # Boolean
 
-bool, True                      #I Boolean
+bool, True                      # I Boolean
 
 # Numeric
 
-int     , 1                     #I Integer
-float   , 1.0                   #I Floating point
-complex , (1+0j)                #I Complex
+int     , 1                     # I Integer
+float   , 1.0                   # I Floating point
+complex , (1+0j)                # I Complex
 
 # Sequences
 
-str   , '123'                   #I String
-tuple , (1, 2, 3)               #I Tuple
-list  , [1, 2, 3]               #M List
-TyStack, TyStack()				#M Stack
-bytes , b'\x00'                 #I Bytes
+str   , '123'                   # I String
+tuple , (1, 2, 3)               # I Tuple
+list  , [1, 2, 3]               # M List
+TyStack, TyStack()				# M Stack
+bytes , b'\x00'                 # I Bytes
 
 
 # Mappings
 
-dict, {1: 1}                    #M Dictionary
+dict, {1: 1}                    # M Dictionary
 
 # Sets
 
-set      , {1, 2, 3}            #M Set
-frozenset, frozenset({1,2,3})   #I Frozen Set
+set      , {1, 2, 3}            # M Set
+frozenset, frozenset({1,2,3})   # I Frozen Set
 
 
 
@@ -34,7 +34,7 @@ frozenset, frozenset({1,2,3})   #I Frozen Set
 
 # E.g. 1 -- Variable assignment.
 
-# Immutable
+# Immutable.
 a = '1'
 b = a
 a += '2'
@@ -44,7 +44,7 @@ a
 b
 '1'
 
-# Mutable
+# Mutable.
 a = [1]
 b = a
 a.append(2)
@@ -57,7 +57,7 @@ b
 
 # E.g. 2 -- Dictionaries. Keys must be immutable.
 
-# Keys must be immutable (hashable) objects
+# Keys must be immutable (hashable) objects.
 
 # Allowed               # TypeError: unhashable type
 d = {  1: 1}            d = {  [1]: 1}
@@ -158,13 +158,10 @@ l2
 
 
 
-
-
-
 """ List, Dictionary, Generator, and Set Comprehensions. """
 
 
-# List
+# List.
 
 l = []
 for number in range(3):
@@ -172,7 +169,7 @@ for number in range(3):
 
 l = [ number for number in range(3) ]
 
-# Dictionary
+# Dictionary.
 
 d = {}
 for key, value in zip('123', range(3)):
@@ -180,7 +177,9 @@ for key, value in zip('123', range(3)):
 
 d = { key : value for key, value in zip('123', range(3)) }
 
-# Generator
+# Generator.
+
+# By definition.
 
 def generator(n=3):
     i = 0
@@ -190,13 +189,18 @@ def generator(n=3):
 
 g = generator(3)
 
+# Generator comprehension.
+
 g = ( i for i in range(3) )
 
-# Set
+
+# Set.
 
 s = set()
 for i in range(3):
     s.update([3])
+    
+# Comprehension.
 
 s = { i for i in range(3) }
 
@@ -213,11 +217,10 @@ l2 = []
 for element in l1:
     l2.append(int(element))
 
-# Better
+# Better (Generally faster than LC for applying built-in functions).
 l2 = map(int, l1)
 
-
-# Better.
+# Better (Generally faster than map for applying lambda functions).
 l2 = [ int(element) for element in l1 ]
 
 # Returns
@@ -240,7 +243,7 @@ for element in l1:
 l2 = filter(bool, l1)
 
 # Better.
-l2 = [ bool(element) for element in l1 ]
+l2 = [ element for element in l1 if element ]
 
 # Returns
 l2
@@ -271,7 +274,7 @@ multiplied
 
 
 
-""" Lambda functions (one-time-use functions) """
+""" Lambda functions (one-time-use functions AKA anonymous functions) """
 
 # E.g.
 addone = lambda x: x + 1
@@ -318,6 +321,8 @@ The next section is a summary of the code in Raymond Hettinger's
 "Transforming Code into Beautiful, Idiomatic Python"
 
 https://www.youtube.com/watch?v=OSGv2VnC0go
+
+A must watch!
 
 """
 
